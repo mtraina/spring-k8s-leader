@@ -1,0 +1,8 @@
+spring:
+  cloud:
+    kubernetes:
+      leader:
+        election:
+          enabled: true
+          lockName: spring-k8s-leader-lock
+          lockNamespace: default

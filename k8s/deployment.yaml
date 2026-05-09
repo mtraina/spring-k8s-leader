@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: spring-k8s-leader
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: spring-k8s-leader
+  template:
+    metadata:
+      labels:
+        app: spring-k8s-leader
+    spec:
+      serviceAccountName: leader-sa
+      containers:
+        - name: spring-k8s-leader
+          image: spring-k8s-leader:latest
+          imagePullPolicy: Never
